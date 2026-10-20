@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Store - Marcas</title>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <h2>Mobile<span>Store</span></h2>
+
+        <div class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="marcas.html" class="active">Marcas</a>
+            <a href="productos.html">Productos</a>
+            <a href="encuesta.html">Encuesta</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+
+        <button onclick="location.href='productos.html'">Comprar ahora</button>
+    </nav>
+</header>
+
+<main>
+    <section class="section">
+        <div class="title">
+            <small>ENCUENTRA TU FAVORITO</small>
+            <h2>Explora por marca</h2>
+        </div>
+
+        <!-- Botones de las Marcas -->
+        <div class="brands">
+            <article onclick="abrirPestana('apple')"><strong>Apple</strong></article>
+            <article onclick="abrirPestana('samsung')">●<strong>Samsung</strong></article>
+            <article onclick="abrirPestana('xiaomi')">◉<strong>Xiaomi</strong></article>
+            <article onclick="abrirPestana('motorola')">◆<strong>Motorola</strong></article>
+            <article onclick="abrirPestana('huawei')">H<strong>Huawei</strong></article>
+        </div>
+    </section>
+</main>
+
+<!-- Ventana Emergente / Modal (Pestaña de Productos) -->
+<div id="modal-productos" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-titulo"> Productos Apple</h2>
+            <span class="close-btn" onclick="cerrarPestana()">&times;</span>
+        </div>
+
+        <div class="modal-body">
+            <!-- Pestaña APPLE -->
+            <div id="cat-apple" class="brand-catalog">
+                <div class="product-item">
+                    <img src="img/iphone 18.3.png" alt="iPhone 18">
+                    <div class="product-info">
+                        <h3>iPhone 18</h3>
+                        <p>Pantalla 6.1" OLED · Chip A19 · Cámara Dual 48MP</p>
+                        <strong>$899</strong>
+                    </div>
+                    <a href="contacto.html" class="btn-comprar">Comprar</a>
+                </div>
+
+                <div class="product-item">
+                    <img src="img/iphone 18 pro.2.png" alt="iPhone 18 Pro">
+                    <div class="product-info">
+                        <h3>iPhone 18 Pro</h3>
+                        <p>Pantalla 6.3" OLED Super Retina · Chip A19 Pro</p>
+                        <strong>$1,199</strong>
+                    </div>
+                    <a href="contacto.html" class="btn-comprar">Comprar</a>
+                </div>
+
+                <div class="product-item">
+                    <img src="img/iphone 18 pro max.1.png" alt="iPhone 18 Pro Max">
+                    <div class="product-info">
+                        <h3>iPhone 18 Pro Max</h3>
+                        <p>Pantalla 6.9" OLED · Chip A19 Pro · 512GB</p>
+                        <strong>$1,399</strong>
+                    </div>
+                    <a href="contacto.html" class="btn-comprar">Comprar</a>
+                </div>
+
+                <div class="product-item">
+                    <img src="img/iphon 17 air.4.png" alt="iPhone 17 Air">
+                    <div class="product-info">
+                        <h3>iPhone 17 Air</h3>
+                        <p>Diseño ultrafino de titanio · Chip A18 Pro</p>
+                        <strong>$999</strong>
+                    </div>
+                    <a href="contacto.html" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <!-- Pestaña SAMSUNG -->
+            <div id="cat-samsung" class="brand-catalog">
+                <div class="product-item">
+                    <img src="img/Galaxy S26 Ultra.9.png" alt="Galaxy S26 Ultra">
+                    <div class="product-info">
+                        <h3>Galaxy S26 Ultra</h3>
+                        <p>Galaxy AI Pro · Cámara 200MP · S-Pen</p>
+                        <strong>$1,299</strong>
+                    </div>
+                    <a href="contacto.html" class="btn-comprar">Comprar</a>
+                </div>
+
+                <div class="product-item">
+                    <img src="img/Galaxy Z Fold 6.11.png" alt="Galaxy Z Fold 6">
+                    <div class="product-info">
+                        <h3>Galaxy Z Fold 6</h3>
+                        <p>Pantalla Plegable 7.6" · Multitarea</p>
+                        <strong>$1,599</strong>
+                    </div>
+                    <a href="contacto.html" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <!-- Pestaña XIAOMI -->
+            <div id="cat-xiaomi" class="brand-catalog">
+                <div class="product-item">
+                    <img src="img/Xiaomi 15 Ultra.13.png" alt="Xiaomi 15 Ultra">
+                    <div class="product-info">
+                        <h3>Xiaomi 15 Ultra</h3>
+                        <p>Óptica Leica Quad Cam · Snapdragon 8 Gen 4</p>
+                        <strong>$999</strong>
+                    </div>
+                    <a href="contacto.html" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <!-- Pestaña MOTOROLA -->
+            <div id="cat-motorola" class="brand-catalog">
+                <div class="product-item">
+                    <img src="img/Razr 50 Ultra.18.png" alt="Razr 50 Ultra">
+                    <div class="product-info">
+                        <h3>Razr 50 Ultra</h3>
+                        <p>Pantalla externa 4.0" · Diseño flip</p>
+                        <strong>$999</strong>
+                    </div>
+                    <a href="contacto.html" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <!-- Pestaña HUAWEI -->
+            <div id="cat-huawei" class="brand-catalog">
+                <div class="product-item">
+                    <img src="img/Pura 70 Ultra.21.png" alt="Pura 70 Ultra">
+                    <div class="product-info">
+                        <h3>Pura 70 Ultra</h3>
+                        <p>Cámara retráctil 1" · Cristal Kunlun</p>
+                        <strong>$1,199</strong>
+                    </div>
+                    <a href="contacto.html" class="btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer>
+    <h2>Mobile<span>Store</span></h2>
+    <p>La tecnología que quieres, al mejor precio.</p>
+    <small>© 2026 Mobile Store. Todos los derechos reservados.</small>
+</footer>
+
+<script>
+    function abrirPestana(marca) {
+        const titulos = {
+            'apple': ' Productos Apple',
+            'samsung': '● Productos Samsung',
+            'xiaomi': '◉ Productos Xiaomi',
+            'motorola': '◆ Productos Motorola',
+            'huawei': 'H Productos Huawei'
+        };
+
+        document.getElementById('modal-titulo').innerText = titulos[marca];
+
+        document.querySelectorAll('.brand-catalog').forEach(cat => cat.style.display = 'none');
+
+        const catalogo = document.getElementById('cat-' + marca);
+        if (catalogo) {
+            catalogo.style.display = 'block';
+        }
+
+        document.getElementById('modal-productos').style.display = 'flex';
+    }
+
+    function cerrarPestana() {
+        document.getElementById('modal-productos').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('modal-productos');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>

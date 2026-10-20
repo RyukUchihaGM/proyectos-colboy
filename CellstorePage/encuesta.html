@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Store - Encuesta</title>
+    <!-- Ruta correcta a tu CSS dentro de la carpeta css -->
+    <link rel="stylesheet" href="css/estilo.css">
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR / ENCABEZADO -->
+    <header>
+    <nav>
+        <h2>Mobile<span>Store</span></h2>
+
+        <div class="menu">
+            <!-- Conexión a todas las páginas principales -->
+            <a href="index.html">Inicio</a>
+            <a href="marcas.html">Marcas</a>
+            <a href="productos.html">Productos</a>
+            <a href="encuesta.html" class="active">Encuesta</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+
+        <button onclick="location.href='productos.html'">Comprar ahora</button>
+    </nav>
+</header>
+    <!-- FORMULARIO DE ENCUESTA -->
+    <main class="container section">
+        <div class="card form-card">
+            <h2><i class="fa-solid fa-pen-to-square"></i> Encuesta de Satisfacción</h2>
+            <p class="section-subtitle">Ayúdanos a mejorar contándonos tu experiencia con tu celular.</p>
+
+            <form class="custom-form">
+                <div class="form-group">
+                    <label for="nombre"><i class="fa-solid fa-user"></i> Nombre completo:</label>
+                    <input type="text" id="nombre" placeholder="Ej. Carlos Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><i class="fa-solid fa-envelope"></i> Correo electrónico:</label>
+                    <input type="email" id="email" placeholder="correo@ejemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="marca"><i class="fa-solid fa-mobile"></i> ¿Qué marca compraste?</label>
+                    <select id="marca">
+                        <option value="iphone">iPhone</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="xiaomi">Xiaomi</option>
+                        <option value="motorola">Motorola</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-star"></i> ¿Cómo calificarías nuestro servicio?</label>
+                    <div class="rating-options">
+                        <label><input type="radio" name="calificacion" value="5"> Excelente</label>
+                        <label><input type="radio" name="calificacion" value="4"> Bueno</label>
+                        <label><input type="radio" name="calificacion" value="3"> Regular</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comentarios"><i class="fa-solid fa-comment"></i> Comentarios:</label>
+                    <textarea id="comentarios" rows="4" placeholder="Escribe tus comentarios aquí..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fa-solid fa-paper-plane"></i> Enviar Encuesta
+                </button>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>
