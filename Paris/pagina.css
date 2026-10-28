@@ -1,0 +1,101 @@
+/* ===== HERO DE LA PÁGINA ===== */
+.pagina-hero {
+    height: 70vh;
+    background: url("img/alta.png") center/cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pagina-hero h1 {
+    color: white;
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+}
+
+.pagina-hero p {
+    color: white;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== CONTENIDO ===== */
+.pagina-contenido {
+    padding: 120px 10%;
+}
+
+.pagina-contenido .contenido {
+    max-width: 700px;
+    margin: 0 auto 80px;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .pagina-hero h1 {
+        font-size: 2.5rem;
+    }
+    .pagina-contenido {
+        padding: 80px 5%;
+    }
+}
+
+/* ===== CARDS ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background: white;
+    overflow: hidden;
+    transition: .4s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    opacity: 1;
+    transform: translateY(40px);
+}
+
+.card.visible {
+    opacity: 1;
+    transform: none;
+    transition: opacity .7s ease, transform .7s ease, box-shadow .4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: #fff;
+}
+
+.card h3 {
+    padding: 20px 20px 5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.card p {
+    padding: 0 20px 30px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}

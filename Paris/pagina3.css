@@ -1,0 +1,49 @@
+/* ===== HERO DE LA PÁGINA ===== */
+.pagina-hero {
+    height: 70vh;
+    background: url("img/joyeria.png") center/cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pagina-hero h1 {
+    color: white;
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+}
+
+.pagina-hero p {
+    color: white;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== CONTENIDO ===== */
+.pagina-contenido {
+    padding: 120px 10%;
+}
+
+.pagina-contenido .contenido {
+    max-width: 700px;
+    margin: 0 auto 80px;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .pagina-hero h1 {
+        font-size: 2.5rem;
+    }
+    .pagina-contenido {
+        padding: 80px 5%;
+    }
+}
