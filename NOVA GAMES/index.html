@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA GAMES | Gaming y Accesorios</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+
+<body>
+    <!--  PANTALLA DE CARGA -->
+    <div id="loader">
+        <div class="loader-logo">
+            <div class="nova-ring"></div>
+        </div>
+        <div class="loader-text">
+            NOVA<span>.</span>GAMES
+        </div>
+    </div>
+
+    <!-- HEADER -->
+
+    <header id="header">
+
+        <a href="#" class="logo">
+            NOVA<span>.</span>GAMES
+        </a>
+
+        <nav class="nav">
+
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button class="theme-button" id="themeButton" aria-label="Cambiar tema">
+                ◉
+            </button>
+
+            <button class="search-button" id="searchButton" aria-label="Buscar">
+                ⌕
+            </button>
+
+            <button class="cart-button" id="cartButton" aria-label="Abrir carrito">
+                🛒
+                <span id="cartCount">0</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- SELECTOR DE TEMAS -->
+
+    <div class="theme-panel" id="themePanel">
+
+        <h3>Tema NOVA</h3>
+
+        <button data-theme="purple">
+            <span class="theme-dot purple"></span>
+            Morado Nova
+        </button>
+
+        <button data-theme="blue">
+            <span class="theme-dot blue"></span>
+            Azul Cyber
+        </button>
+
+        <button data-theme="green">
+            <span class="theme-dot green"></span>
+            Verde Neón
+        </button>
+
+        <button data-theme="red">
+            <span class="theme-dot red"></span>
+            Crimson Nova
+        </button>
+
+    </div>
+
+
+    <!-- BUSCADOR -->
+
+    <div class="search-overlay" id="searchOverlay">
+
+        <div class="search-box">
+
+            <button id="closeSearch">×</button>
+
+            <p>BUSCAR EN NOVA</p>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Busca un producto..."
+                autocomplete="off"
+            >
+
+        </div>
+
+    </div>
+
+
+    <main id="inicio">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="hero-label">
+                    TECNOLOGÍA • GAMING • EXPERIENCIA
+                </p>
+
+                <h1>
+                    Tu próxima<br>
+                    <span>experiencia.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Descubre periféricos, hardware y tecnología
+                    diseñada para llevar tu setup más lejos.
+                </p>
+
+                <a href="#catalogo" class="primary-button">
+                    Explorar catálogo
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <!-- Slider visual -->
+
+            <div class="hero-visual">
+
+                <div class="hero-image hero-image-one"></div>
+                <div class="hero-image hero-image-two"></div>
+                <div class="hero-image hero-image-three"></div>
+
+                <div class="hero-overlay"></div>
+
+                <div class="hero-slide-info">
+                    <span>01 / 03</span>
+                    <p>NOVA SETUP</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             CATEGORÍAS
+        =============================== -->
+
+        <section class="categories">
+
+            <div class="section-heading">
+
+                <p>EXPLORA</p>
+
+                <h2>
+                    Encuentra tu
+                    <span>equipo.</span>
+                </h2>
+
+            </div>
+
+            <div class="category-list">
+
+                <button class="category-card active" data-category="Todos">
+                    <span>◈</span>
+                    Todos
+                </button>
+
+                <button class="category-card" data-category="Mouse">
+                    <span>◉</span>
+                    Mouse
+                </button>
+
+                <button class="category-card" data-category="Teclados">
+                    <span>⌨</span>
+                    Teclados
+                </button>
+
+                <button class="category-card" data-category="Audífonos">
+                    <span>◉</span>
+                    Audífonos
+                </button>
+
+                <button class="category-card" data-category="Mousepads">
+                    <span>▱</span>
+                    Mousepads
+                </button>
+
+                <button class="category-card" data-category="Controles">
+                    <span>◇</span>
+                    Controles
+                </button>
+
+                <button class="category-card" data-category="Micrófonos">
+                    <span>♢</span>
+                    Micrófonos
+                </button>
+
+                <button class="category-card" data-category="Componentes">
+                    <span>⬡</span>
+                    Componentes
+                </button>
+
+                <button class="category-card" data-category="Consolas">
+                    <span>▣</span>
+                    Consolas
+                </button>
+
+                <button class="category-card" data-category="Videojuegos">
+                    <span>△</span>
+                    Videojuegos
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             CATÁLOGO
+        =============================== -->
+
+        <section class="catalog" id="catalogo">
+
+            <div class="catalog-top">
+
+                <div>
+
+                    <p class="section-label">
+                        NOVA STORE
+                    </p>
+
+                    <h2>
+                        Catálogo
+                    </h2>
+
+                </div>
+
+                <div class="catalog-controls">
+
+                    <span id="productCounter">
+                        0 productos
+                    </span>
+
+                    <select id="sortSelect">
+
+                        <option value="default">
+                            Recomendados
+                        </option>
+
+                        <option value="low">
+                            Precio: menor a mayor
+                        </option>
+
+                        <option value="high">
+                            Precio: mayor a menor
+                        </option>
+
+                        <option value="rating">
+                            Mejor calificación
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="products-grid" id="productsGrid">
+                <!-- JavaScript insertará los productos aquí -->
+            </div>
+
+
+            <div class="no-results" id="noResults">
+
+                <div>⌕</div>
+
+                <h3>No encontramos ese producto</h3>
+
+                <p>
+                    Intenta con otro nombre o categoría.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         MODAL DE PRODUCTO
+    =============================== -->
+
+    <div class="product-modal" id="productModal">
+
+        <div class="product-modal-content">
+
+            <button class="close-modal" id="closeProductModal">
+                ×
+            </button>
+
+            <img class="product-modal-image" id="modalImage" alt="">
+
+            <div class="product-modal-info">
+
+                <p class="modal-category" id="modalCategory">
+                    Categoría
+                </p>
+
+                <h2 id="modalName">
+                    Producto
+                </h2>
+
+                <div class="modal-rating" id="modalRating">
+                    ★★★★★
+                </div>
+
+                <div class="modal-price">
+
+                    <span class="old-price" id="modalOldPrice">
+                        $0
+                    </span>
+
+                    <strong id="modalPrice">
+                        $0
+                    </strong>
+
+                </div>
+
+                <p class="modal-description" id="modalDescription">
+                    Descripción del producto.
+                </p>
+
+                <div class="specifications">
+
+                    <h3>Especificaciones</h3>
+
+                    <ul id="modalSpecs">
+                    </ul>
+
+                </div>
+
+                <button
+                    class="primary-button modal-cart-button"
+                    id="modalAddCart"
+                >
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         CARRITO
+    =============================== -->
+
+    <div class="cart-overlay" id="cartOverlay">
+
+        <div class="cart-panel">
+
+            <div class="cart-header">
+
+                <div>
+
+                    <p>CARRITO</p>
+
+                    <h2>
+                        Tus productos
+                    </h2>
+
+                </div>
+
+                <button id="closeCart">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="cart-content">
+
+                <div class="cart-products" id="cartProducts">
+
+                    <!-- JavaScript insertará productos -->
+
+                </div>
+
+
+                <aside class="checkout-message">
+
+                    <div class="checkout-icon">
+                        ⊘
+                    </div>
+
+                    <h3>
+                        Compra no disponible
+                    </h3>
+
+                    <p>
+                        La opción de compra y envío no está
+                        disponible actualmente para tu región.
+                    </p>
+
+                    <span>
+                        NOVA GAMES
+                    </span>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+
+        <div class="footer-logo">
+            NOVA
+        </div>
+
+        <div class="footer-center">
+
+            <div class="footer-nova-ring"></div>
+
+            <h3>
+                NOVA GAMES
+            </h3>
+
+            <a href="https://www.instagram.com/ciro_xss/" class="instagram" target="_blank">
+                Instagram
+            </a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 NOVA GAMES
+        </p>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

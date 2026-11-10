@@ -1,0 +1,43 @@
+/* =========================================
+   TEMAS NOVA
+========================================= */
+
+
+/* MORADO NOVA */
+
+body[data-theme="purple"] {
+
+    --accent: #9d5cff;
+    --accent-secondary: #5b2cff;
+
+}
+
+
+/* CYBER AZUL */
+
+body[data-theme="blue"] {
+
+    --accent: #20a9ff;
+    --accent-secondary: #006eff;
+
+}
+
+
+/* NEON VERDE */
+
+body[data-theme="green"] {
+
+    --accent: #36ff85;
+    --accent-secondary: #00b85a;
+
+}
+
+
+/* CRIMSON */
+
+body[data-theme="red"] {
+
+    --accent: #ff3d5e;
+    --accent-secondary: #b80029;
+
+}
