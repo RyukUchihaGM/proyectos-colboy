@@ -1,0 +1,457 @@
+/* =====================================================
+   BASE.CSS — fundamentos compartidos por TODAS las páginas
+   Aquí van: reset, variables de diseño (colores/tipografías),
+   y componentes que se repiten en cada pantalla (navbar, footer, botones).
+   Cada página (homepage.html, catalogo.html, etc.) enlaza este
+   archivo PRIMERO y luego su propio CSS con estilos específicos.
+   ===================================================== */
+
+/* ---------- FUENTES ---------- */
+/* Outfit = títulos y menú. Geist = texto de párrafo. Geist Mono = detalles técnicos. */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap');
+
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- VARIABLES DE DISEÑO (tokens) ---------- */
+/* :root define variables globales, reutilizables en todo el CSS con var(--nombre) */
+:root {
+  /* Colores de fondo */
+  --color-fondo: #0a080d;          /* fondo general, un poco más oscuro que los paneles */
+  --color-panel: #110e15;          /* fondo de navbar, footer, secciones */
+  --color-panel-claro: #1a1622;    /* fondo de tarjetas, inputs, badges */
+  --color-borde: #25202e;          /* bordes sutiles */
+
+  /* Colores de acento (marca) */
+  --color-cian: #00f0ff;           /* acento principal: links activos, precios, highlights */
+  --color-magenta: #ff007a;        /* acento secundario: detalles, "//" del logo */
+
+  /* Colores de texto */
+  --color-texto: #f1edf7;          /* texto principal (casi blanco) */
+  --color-texto-muted: #a39eb0;    /* texto secundario/gris */
+  --color-texto-dim: #656073;      /* texto terciario, muy apagado (placeholders, copyright) */
+
+  /* Tipografías */
+  --fuente-titulos: 'Outfit', sans-serif;
+  --fuente-texto: 'Geist', sans-serif;
+  --fuente-mono: 'Geist Mono', monospace;
+
+  /* Otros */
+  --radio-chico: 4px;
+  --radio-redondo: 999px; /* para círculos/píldoras */
+  --ancho-maximo: 1440px;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+/* Contenedor centrado que usan todas las secciones anchas */
+.contenedor {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+/* ===================== NAVBAR (compartido en las 4 páginas) ===================== */
+.navbar {
+  background-color: var(--color-panel);
+  border-bottom: 1px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+}
+
+.navbar__marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar__logo {
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-cian);
+  border-radius: var(--radio-chico);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__logo img {
+  width: 16px;
+  height: 16px;
+}
+
+.navbar__nombre {
+  font-family: var(--fuente-titulos);
+  font-weight: 900;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--color-texto);
+}
+
+.navbar__nombre span {
+  color: var(--color-magenta);
+}
+
+.navbar__menu {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.navbar__menu a {
+  font-family: var(--fuente-titulos);
+  font-weight: 500;
+  color: var(--color-texto-muted);
+  transition: color 0.15s ease;
+}
+
+.navbar__menu a:hover {
+  color: var(--color-cian);
+}
+
+.navbar__menu a.activo {
+  font-weight: 700;
+  color: var(--color-cian);
+}
+
+.navbar__derecha {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar__buscador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 240px;
+  padding: 8px 12px;
+  background-color: var(--color-panel-claro);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-chico);
+}
+
+.navbar__buscador img {
+  width: 14px;
+  height: 14px;
+}
+
+.navbar__buscador input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: 12px;
+}
+
+.navbar__buscador input::placeholder {
+  color: var(--color-texto-dim);
+}
+
+.navbar__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-cian);
+  overflow: hidden;
+}
+
+.navbar__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Botón "hamburguesa": oculto en escritorio, nav.js lo muestra funcional
+   solo dentro del media query de abajo. display:none aquí es el estado
+   por defecto para pantallas grandes. */
+.navbar__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-chico);
+  color: var(--color-texto);
+  font-size: 18px;
+}
+
+/* ===================== BOTONES ===================== */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radio-chico);
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.boton:hover {
+  transform: translateY(-1px);
+}
+
+.boton--primario {
+  background-color: var(--color-cian);
+  color: #0a080d;
+}
+
+.boton--primario:hover {
+  opacity: 0.9;
+}
+
+.boton--fantasma {
+  background: transparent;
+  border: 1px solid var(--color-borde);
+  color: var(--color-texto);
+}
+
+.boton--fantasma:hover {
+  border-color: var(--color-cian);
+  color: var(--color-cian);
+}
+
+/* ===================== FOOTER (compartido en las 4 páginas) ===================== */
+.footer {
+  background-color: var(--color-panel);
+  border-top: 1px solid var(--color-borde);
+  padding: 80px 80px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.footer__cols {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer__marca {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 340px;
+}
+
+.footer__descripcion {
+  color: var(--color-texto-muted);
+  font-size: 14px;
+}
+
+.footer__links-grid {
+  display: flex;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.footer__columna {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer__titulo-col {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--color-cian);
+}
+
+.footer__columna a {
+  font-size: 14px;
+  color: var(--color-texto-muted);
+  transition: color 0.15s ease;
+}
+
+.footer__columna a:hover {
+  color: var(--color-texto);
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer__copy {
+  font-family: var(--fuente-mono);
+  font-size: 12px;
+  color: var(--color-texto-dim);
+}
+
+.footer__social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer__social a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-panel-claro);
+  border: 1px solid var(--color-borde);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease;
+}
+
+.footer__social a:hover {
+  border-color: var(--color-cian);
+}
+
+.footer__social img {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+/* Tablet: el navbar necesita menos aire y el menú central pasa a
+   ser un desplegable controlado por nav.js */
+@media (max-width: 900px) {
+  .navbar {
+    position: relative; /* ancla el menú desplegable de abajo */
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .contenedor, .footer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .navbar__menu {
+    display: none; /* nav.js le agrega/quita .abierto al hacer clic en el botón */
+  }
+
+  .navbar__menu.abierto {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-panel);
+    border-bottom: 1px solid var(--color-borde);
+    padding: 20px 24px;
+    gap: 18px;
+    z-index: 50;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+  }
+
+  .navbar__toggle {
+    display: flex; /* en escritorio queda display:none (ver arriba) */
+  }
+
+  .footer {
+    padding-top: 56px;
+    gap: 40px;
+  }
+
+  .footer__cols {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer__links-grid {
+    gap: 40px;
+  }
+}
+
+/* Móvil chico: escondemos el buscador del navbar (no entra) y
+   apilamos el footer para que no se vea apretado */
+@media (max-width: 640px) {
+  .navbar__buscador {
+    display: none;
+  }
+
+  .footer__links-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* ===================== TOAST (compartido en las 3 páginas) =====================
+   Aviso flotante y temporal, usado por nav.js para:
+   - confirmar acciones (agregar a favoritos, suscribirse al newsletter)
+   - avisar que un link todavía no lleva a ninguna parte ("en desarrollo") */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 16px);
+  background-color: var(--color-panel-claro);
+  border: 1px solid var(--color-cian);
+  border-radius: var(--radio-chico);
+  padding: 12px 20px;
+  font-family: var(--fuente-mono);
+  font-size: 13px;
+  color: var(--color-texto);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+  max-width: calc(100vw - 48px);
+  text-align: center;
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

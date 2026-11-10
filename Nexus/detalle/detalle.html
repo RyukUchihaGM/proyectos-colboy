@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cargando... — NEXUS//GAMING</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo-triangle.svg">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="detalle.css">
+</head>
+<body>
+
+  <!--
+    ESTA ES LA PLANTILLA ÚNICA para las fichas de producto.
+    El HTML de aquí abajo está casi vacío a propósito: los textos,
+    imágenes y listas los escribe detalle.js en tiempo real, leyendo
+    el objeto correspondiente de productos-datos.js según el "id"
+    que venga en la URL, ej: detalle.html?id=rtx4090
+
+    Por eso casi todo tiene un id="..." — es el "gancho" que usa
+    JavaScript (document.getElementById) para encontrar dónde
+    escribir cada dato.
+  -->
+
+  <header class="navbar">
+    <div class="navbar__marca">
+      <div class="navbar__logo"><img src="../assets/logo-triangle.svg" alt=""></div>
+      <p class="navbar__nombre">NEXUS<span>//</span>GAMING</p>
+    </div>
+    <nav class="navbar__menu" id="navbar-menu">
+      <a href="../index.html">Inicio</a>
+      <a href="../catalogo/catalogo.html" class="activo">Catálogo</a>
+      <a href="../catalogo/catalogo.html?categoria=Videojuegos">Videojuegos</a>
+      <a href="../catalogo/catalogo.html?categoria=Tecnología">Tecnología</a>
+      <a href="../catalogo/catalogo.html?categoria=Consolas">Consolas</a>
+      <a href="../catalogo/catalogo.html?categoria=Accesorios">Accesorios</a>
+      <a href="../catalogo/catalogo.html?favoritos=1">Favoritos</a>
+    </nav>
+    <div class="navbar__derecha">
+      <div class="navbar__buscador">
+        <img src="../assets/icon-search.svg" alt="">
+        <input type="text" id="navbar-buscar" name="navbar-buscar" placeholder="Buscar en la base de datos...">
+      </div>
+      <a href="#" class="navbar__avatar"><img src="../assets/avatar-default.png" alt="Perfil"></a>
+    </div>
+    <button type="button" class="navbar__toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navbar-menu">☰</button>
+  </header>
+
+  <main id="contenido-principal">
+
+    <!-- Si el id de la URL no existe en productos-datos.js, detalle.js
+         reemplaza TODO esto por un mensaje de "producto no encontrado". -->
+
+    <nav class="breadcrumbs" aria-label="Ruta de navegación">
+      <a href="../index.html">Inicio</a>
+      <span class="breadcrumbs__sep">&gt;</span>
+      <a href="../catalogo/catalogo.html">Catálogo</a>
+      <span class="breadcrumbs__sep">&gt;</span>
+      <a href="../catalogo/catalogo.html" id="bc-categoria">Categoría</a>
+      <span class="breadcrumbs__sep">&gt;</span>
+      <span class="breadcrumbs__actual" id="bc-actual">Producto</span>
+    </nav>
+
+    <section class="hero-block">
+      <div class="hero-block__cover" id="cover-caja">
+        <img id="cover-img" src="" alt="">
+      </div>
+
+      <div class="hero-block__meta">
+        <div class="badge-row" id="badge-row"></div>
+
+        <h1 class="game-title" id="titulo-producto"></h1>
+
+        <!-- Solo se muestra si el producto tiene precio (JS le agrega la clase "visible") -->
+        <div class="price-tag" id="price-tag" hidden>
+          <span class="price-tag__valor" id="price-valor"></span>
+          <span class="price-tag__stock" id="price-stock"></span>
+        </div>
+
+        <button type="button" class="boton boton--fantasma boton-favorito" id="btn-favorito" aria-pressed="false">☆ Añadir a Favoritos</button>
+
+        <div class="developer-row" id="meta-row"></div>
+
+        <hr class="linea">
+
+        <div class="genre-tags" id="tags-row"></div>
+
+        <div class="rating-group">
+          <span class="rating-group__texto">Valoración de la Comunidad:</span>
+          <span class="rating-group__estrellas" id="rating-estrellas"></span>
+          <span class="rating-group__numero" id="rating-numero"></span>
+        </div>
+
+        <div class="platforms-block">
+          <p class="platforms-block__titulo" id="plataformas-titulo"></p>
+          <div class="platforms-block__lista" id="plataformas-lista"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-body">
+      <div class="body-left">
+
+        <article class="hud-card hud-card--cian">
+          <div class="hud-card__header">
+            <p class="hud-card__title">Descripción</p>
+            <span class="hud-card__tag hud-card__tag--cian">SEC: INF_INFO</span>
+          </div>
+          <hr class="linea">
+          <p class="hud-card__texto" id="descripcion-texto"></p>
+        </article>
+
+        <section class="modes-section">
+          <h2 class="titulo-seccion" id="specs-titulo"></h2>
+          <div class="modes-grid" id="specs-grid"></div>
+        </section>
+
+        <section class="reqs-section">
+          <h2 class="titulo-seccion" id="req-titulo"></h2>
+          <div class="reqs-columns">
+            <div class="req-col">
+              <p class="req-col__titulo req-col__titulo--cian" id="req-min-titulo"></p>
+              <hr class="linea">
+              <div class="req-col__filas" id="req-min-filas"></div>
+            </div>
+            <div class="req-col">
+              <p class="req-col__titulo req-col__titulo--magenta" id="req-rec-titulo"></p>
+              <hr class="linea">
+              <div class="req-col__filas" id="req-rec-filas"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="body-right">
+        <article class="hud-card hud-card--magenta">
+          <div class="hud-card__header">
+            <p class="hud-card__title" id="stats-titulo"></p>
+            <span class="hud-card__tag hud-card__tag--magenta">STATS</span>
+          </div>
+          <hr class="linea">
+          <div class="stats-list" id="stats-filas"></div>
+        </article>
+
+        <article class="hud-card hud-card--cian">
+          <p class="hud-card__title">Características Clave</p>
+          <hr class="linea">
+          <ul class="features-list" id="features-lista"></ul>
+        </article>
+
+        <article class="hud-card hud-card--magenta">
+          <p class="hud-card__title">Pros y Contras</p>
+          <hr class="linea">
+          <div class="proscons">
+            <p class="proscons__label proscons__label--cian">PUNTOS POSITIVOS</p>
+            <div id="pros-lista"></div>
+          </div>
+          <hr class="linea">
+          <div class="proscons">
+            <p class="proscons__label proscons__label--magenta">PUNTOS NEGATIVOS</p>
+            <div id="contras-lista"></div>
+          </div>
+        </article>
+
+        <article class="hud-card hud-card--cian">
+          <p class="hud-card__title">¿Para quién es?</p>
+          <hr class="linea">
+          <p class="hud-card__texto" id="para-quien-texto"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <h2 class="titulo-seccion" id="galeria-titulo"></h2>
+      <div class="gallery-row" id="galeria-row"></div>
+    </section>
+
+    <section class="similar-section">
+      <h2 class="titulo-seccion">Productos Similares</h2>
+      <div class="similar-grid" id="similares-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__cols">
+      <div class="footer__marca">
+        <div class="navbar__marca">
+          <div class="navbar__logo"><img src="../assets/logo-triangle.svg" alt=""></div>
+          <p class="navbar__nombre">NEXUS<span>//</span>GAMING</p>
+        </div>
+        <p class="footer__descripcion">La base de datos definitiva para el entusiasta del hardware y los videojuegos. Especificaciones, análisis y comparativas premium.</p>
+      </div>
+      <div class="footer__links-grid">
+        <div class="footer__columna">
+          <p class="footer__titulo-col">Catálogo</p>
+          <a href="../catalogo/catalogo.html?categoria=Videojuegos">Videojuegos</a>
+          <a href="../catalogo/catalogo.html?categoria=Consolas">Consolas</a>
+          <a href="../catalogo/catalogo.html?categoria=PC%20Gaming">PC Gaming</a>
+          <a href="../catalogo/catalogo.html?categoria=Accesorios">Accesorios</a>
+          <a href="../catalogo/catalogo.html?categoria=Tecnología">Tecnología</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 NEXUSGAMING. PROYECTO FICTICIO DE BASE DE DATOS.</p>
+      <div class="footer__social">
+        <a href="#"><img src="../assets/icon-twitter.svg" alt="Twitter"></a>
+        <a href="#"><img src="../assets/icon-share.svg" alt="Compartir"></a>
+        <a href="#"><img src="../assets/icon-twitch.svg" alt="Twitch"></a>
+        <a href="#"><img src="../assets/icon-youtube.svg" alt="YouTube"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../nav.js"></script>
+  <!-- El orden importa: los datos deben cargar ANTES que el script que los usa -->
+  <script src="../productos-datos.js"></script>
+  <script src="detalle.js"></script>
+</body>
+</html>

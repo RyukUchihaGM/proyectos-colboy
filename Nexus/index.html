@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS//GAMING - Inicio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-triangle.svg">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar__marca">
+      <div class="navbar__logo"><img src="assets/logo-triangle.svg" alt=""></div>
+      <p class="navbar__nombre">NEXUS<span>//</span>GAMING</p>
+    </div>
+    <nav class="navbar__menu" id="navbar-menu">
+      <a href="index.html" class="activo">Inicio</a>
+      <a href="catalogo/catalogo.html">Catálogo</a>
+      <a href="catalogo/catalogo.html?categoria=Videojuegos">Videojuegos</a>
+      <a href="catalogo/catalogo.html?categoria=Tecnología">Tecnología</a>
+      <a href="catalogo/catalogo.html?categoria=Consolas">Consolas</a>
+      <a href="catalogo/catalogo.html?categoria=Accesorios">Accesorios</a>
+      <a href="catalogo/catalogo.html?favoritos=1">Favoritos</a>
+    </nav>
+    <div class="navbar__derecha">
+      <div class="navbar__buscador">
+        <img src="assets/icon-search.svg" alt="">
+        <input type="text" id="navbar-buscar" name="navbar-buscar" placeholder="Buscar en la base de datos...">
+      </div>
+      <a href="#" class="navbar__avatar"><img src="assets/avatar-default.png" alt="Perfil"></a>
+    </div>
+    <!-- Botón hamburguesa: solo se ve y funciona en pantallas chicas (ver base.css + nav.js) -->
+    <button type="button" class="navbar__toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navbar-menu">☰</button>
+  </header>
+
+  <!-- HERO: imagen de fondo + overlay oscuro + tarjeta de estado a la derecha -->
+  <section class="hero">
+    <img class="hero__fondo" src="assets/home-hero-bg.jpg" alt="">
+    <div class="hero__contenido">
+      <div class="hero__badge">
+        <img src="assets/home-hero-dot.svg" alt="">
+        <span>NEXUS DATABASE v2.0</span>
+      </div>
+      <h1 class="hero__titulo">
+        Tu universo gaming<br>
+        <span>en un solo lugar</span>
+      </h1>
+      <p class="hero__desc">Explora el catálogo definitivo de videojuegos, consolas y tecnología. Fichas técnicas, valoraciones reales y comparativas estructuradas sin filtros comerciales.</p>
+      <div class="hero__acciones">
+        <a href="catalogo/catalogo.html" class="boton boton--primario">Explorar Catálogo <img src="assets/home-hero-arrow.svg" alt=""></a>
+        <a href="#newsletter" class="boton boton--fantasma" id="btn-registrar">Registrar Entrada</a>
+      </div>
+    </div>
+    <div class="hero__panel">
+      <div class="hud-card">
+        <div class="hud-card__header">
+          <p>SISTEMA EN LÍNEA</p>
+          <p class="hud-card__check">SEC_CHECK: OK</p>
+        </div>
+        <img class="hud-card__linea" src="assets/home-hero-line.svg" alt="">
+        <div class="hud-card__stats">
+          <div class="hud-card__fila"><span>Fichas Indexadas</span><strong>47,890</strong></div>
+          <div class="hud-card__fila"><span>Usuarios de la Red</span><strong>124,510</strong></div>
+          <div class="hud-card__fila"><span>Tasa de Latencia</span><strong class="rosa">0.12ms</strong></div>
+        </div>
+        <div class="hud-card__barra"><div class="hud-card__barra-relleno"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS DESTACADOS -->
+  <section class="seccion seccion--borde">
+    <div class="seccion__header">
+      <div>
+        <p class="seccion__eyebrow">// SELECCIÓN PREMIUM</p>
+        <h2 class="seccion__titulo">🔥 Productos Destacados</h2>
+      </div>
+      <a href="catalogo/catalogo.html" class="seccion__ver-todos">VER TODOS (4)</a>
+    </div>
+
+    <div class="productos-grid">
+      <article class="producto-card producto-card--cian">
+        <img class="producto-card__imagen" src="assets/home-feat-ps5.jpg" alt="PlayStation 5 Pro">
+        <div class="producto-card__fila">
+          <span class="badge">Consola</span>
+          <span class="rating"><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star-off.svg" alt=""> 4.8</span>
+        </div>
+        <h3 class="producto-card__nombre">PlayStation 5 Pro</h3>
+        <p class="producto-card__desc">La consola definitiva de Sony con trazado de rayos avanzado y almacenamiento SSD de alta velocidad.</p>
+        <a href="detalle/detalle.html?id=ps5pro" class="boton boton--primario boton--full">Ver detalles</a>
+      </article>
+
+      <article class="producto-card producto-card--magenta">
+        <img class="producto-card__imagen" src="assets/home-feat-minecraft.jpg" alt="Minecraft">
+        <div class="producto-card__fila">
+          <span class="badge">Videojuego</span>
+          <span class="rating"><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star-off.svg" alt=""> 4.9</span>
+        </div>
+        <h3 class="producto-card__nombre">Minecraft</h3>
+        <p class="producto-card__desc">Explora mundos infinitos y construye todo lo que puedas imaginar en este clásico atemporal.</p>
+        <a href="detalle/detalle.html?id=minecraft" class="boton boton--fantasma boton--full">Ver detalles</a>
+      </article>
+
+      <article class="producto-card producto-card--cian">
+        <img class="producto-card__imagen" src="assets/home-feat-rtx4090.jpg" alt="NVIDIA RTX 4090">
+        <div class="producto-card__fila">
+          <span class="badge">PC Gaming</span>
+          <span class="rating"><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""> 5.0</span>
+        </div>
+        <h3 class="producto-card__nombre">NVIDIA RTX 4090</h3>
+        <p class="producto-card__desc">La tarjeta gráfica reina del trazado de rayos y DLSS 3. Rendimiento absoluto sin compromisos.</p>
+        <a href="detalle/detalle.html?id=rtx4090" class="boton boton--primario boton--full">Ver detalles</a>
+      </article>
+
+      <article class="producto-card producto-card--magenta">
+        <img class="producto-card__imagen" src="assets/home-feat-razer.jpg" alt="Razer BlackShark V2">
+        <div class="producto-card__fila">
+          <span class="badge">Accesorios</span>
+          <span class="rating"><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star-off.svg" alt=""> 4.6</span>
+        </div>
+        <h3 class="producto-card__nombre">Razer BlackShark V2</h3>
+        <p class="producto-card__desc">Audio espacial de alta fidelidad y micrófono con cancelación de ruido pasiva avanzada para esports.</p>
+        <a href="detalle/detalle.html?id=blackshark" class="boton boton--fantasma boton--full">Ver detalles</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- VIDEOJUEGOS POPULARES -->
+  <section class="seccion seccion--panel">
+    <div class="seccion__header seccion__header--solo">
+      <p class="seccion__eyebrow seccion__eyebrow--rosa">// LOS MÁS JUGADOS DEL MES</p>
+      <h2 class="seccion__titulo">🎮 Videojuegos Populares</h2>
+    </div>
+
+    <div class="juegos-grid">
+      <a href="detalle/detalle.html?id=valorant" class="juego-card">
+        <img class="juego-card__imagen" src="assets/home-game-valorant.jpg" alt="Valorant">
+        <div class="juego-card__info">
+          <h3>Valorant</h3>
+          <div class="juego-card__fila">
+            <span>Tactical Shooter</span>
+            <span class="juego-card__iconos"><img src="assets/home-icon-gamepad.svg" alt=""><img src="assets/home-icon-gamepad.svg" alt=""><img src="assets/home-icon-monitor.svg" alt=""></span>
+          </div>
+        </div>
+      </a>
+      <a href="detalle/detalle.html?id=fortnite" class="juego-card">
+        <img class="juego-card__imagen" src="assets/home-game-fortnite.jpg" alt="Fortnite">
+        <div class="juego-card__info">
+          <h3>Fortnite</h3>
+          <div class="juego-card__fila">
+            <span>Battle Royale</span>
+            <span class="juego-card__iconos"><img src="assets/home-icon-gamepad.svg" alt=""><img src="assets/home-icon-gamepad.svg" alt=""><img src="assets/home-icon-monitor.svg" alt=""></span>
+          </div>
+        </div>
+      </a>
+      <a href="detalle/detalle.html?id=easportsfc25" class="juego-card">
+        <img class="juego-card__imagen" src="assets/home-game-fc25.jpg" alt="EA Sports FC 25">
+        <div class="juego-card__info">
+          <h3>EA Sports FC 25</h3>
+          <div class="juego-card__fila">
+            <span>Deportes</span>
+            <span class="juego-card__iconos"><img src="assets/home-icon-gamepad.svg" alt=""><img src="assets/home-icon-gamepad.svg" alt=""><img src="assets/home-icon-monitor.svg" alt=""></span>
+          </div>
+        </div>
+      </a>
+      <a href="detalle/detalle.html?id=gtavi" class="juego-card">
+        <img class="juego-card__imagen" src="assets/home-game-gta6.jpg" alt="GTA VI">
+        <div class="juego-card__info">
+          <h3>GTA VI</h3>
+          <div class="juego-card__fila">
+            <span>Acción / Mundo Abierto</span>
+            <span class="juego-card__iconos"><img src="assets/home-icon-gamepad.svg" alt=""><img src="assets/home-icon-gamepad.svg" alt=""><img src="assets/home-icon-monitor.svg" alt=""></span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- NOVEDADES DEL SECTOR -->
+  <section class="seccion">
+    <div class="seccion__header seccion__header--solo">
+      <p class="seccion__eyebrow">// LANZAMIENTOS RECIENTES</p>
+      <h2 class="seccion__titulo">✨ Novedades del Sector</h2>
+    </div>
+
+    <div class="novedades-grid">
+      <a href="detalle/detalle.html?id=steamdeckoled" class="novedad-card">
+        <img class="novedad-card__imagen" src="assets/home-new-steamdeck.jpg" alt="Steam Deck OLED">
+        <div class="novedad-card__info">
+          <div class="producto-card__fila">
+            <span class="badge">Consola Portátil</span>
+            <span class="badge badge--nuevo">NUEVO</span>
+          </div>
+          <h3>Steam Deck OLED</h3>
+          <p>La mejor consola de PC portátil ahora con una pantalla OLED espectacular y batería extendida.</p>
+        </div>
+      </a>
+      <a href="detalle/detalle.html?id=switch2" class="novedad-card">
+        <img class="novedad-card__imagen" src="assets/home-new-switch2.jpg" alt="Nintendo Switch 2">
+        <div class="novedad-card__info">
+          <div class="producto-card__fila">
+            <span class="badge">Consola</span>
+            <span class="badge badge--nuevo">NUEVO</span>
+          </div>
+          <h3>Nintendo Switch 2 (Rumor/Spec)</h3>
+          <p>Las especificaciones filtradas de la próxima consola híbrida con soporte DLSS 4K y chip NVIDIA.</p>
+        </div>
+      </a>
+      <a href="detalle/detalle.html?id=ryzen9950x" class="novedad-card">
+        <img class="novedad-card__imagen" src="assets/home-new-ryzen.jpg" alt="AMD Ryzen 9 9950X">
+        <div class="novedad-card__info">
+          <div class="producto-card__fila">
+            <span class="badge">PC Gaming</span>
+            <span class="badge badge--nuevo">NUEVO</span>
+          </div>
+          <h3>AMD Ryzen 9 9950X</h3>
+          <p>Arquitectura Zen 5 con un rendimiento multinúcleo aplastante para creadores y jugadores extremos.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS PRINCIPALES -->
+  <section class="seccion seccion--panel">
+    <div class="seccion__header seccion__header--solo">
+      <p class="seccion__eyebrow seccion__eyebrow--rosa">// ESTRUCTURA COMPLETA</p>
+      <h2 class="seccion__titulo">Categorías Principales</h2>
+    </div>
+
+    <div class="categorias-grid">
+      <a href="catalogo/catalogo.html?categoria=Videojuegos" class="categoria-card categoria-card--activa">
+        <p class="categoria-card__icono">🎮</p>
+        <p class="categoria-card__nombre">Videojuegos</p>
+        <p class="categoria-card__cantidad">12,450 Items</p>
+      </a>
+      <a href="catalogo/catalogo.html?categoria=Consolas" class="categoria-card">
+        <p class="categoria-card__icono">🕹️</p>
+        <p class="categoria-card__nombre">Consolas</p>
+        <p class="categoria-card__cantidad">142 Items</p>
+      </a>
+      <a href="catalogo/catalogo.html?categoria=PC%20Gaming" class="categoria-card">
+        <p class="categoria-card__icono">🖥️</p>
+        <p class="categoria-card__nombre">PC Gaming</p>
+        <p class="categoria-card__cantidad">2,840 Items</p>
+      </a>
+      <a href="catalogo/catalogo.html?categoria=Accesorios" class="categoria-card">
+        <p class="categoria-card__icono">🎧</p>
+        <p class="categoria-card__nombre">Accesorios</p>
+        <p class="categoria-card__cantidad">1,980 Items</p>
+      </a>
+      <a href="catalogo/catalogo.html?categoria=Tecnología" class="categoria-card">
+        <p class="categoria-card__icono">📱</p>
+        <p class="categoria-card__nombre">Tecnología</p>
+        <p class="categoria-card__cantidad">890 Items</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- MEJOR VALORADOS -->
+  <section class="seccion">
+    <div class="seccion__header seccion__header--solo">
+      <p class="seccion__eyebrow">// EL CRITERIO DEL JURADO</p>
+      <h2 class="seccion__titulo">⭐ Mejor Valorados de la Comunidad</h2>
+    </div>
+
+    <div class="top-rated-grid">
+      <a href="detalle/detalle.html?id=zelda" class="rating-card">
+        <img class="rating-card__imagen" src="assets/home-top-zelda.jpg" alt="Zelda: Tears of the Kingdom">
+        <p class="rating-card__categoria">Aventura</p>
+        <h3 class="rating-card__nombre">Zelda: Tears of the Kingdom</h3>
+        <span class="rating"><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star-off.svg" alt=""> 4.9</span>
+      </a>
+      <a href="detalle/detalle.html?id=cyberpunk" class="rating-card">
+        <img class="rating-card__imagen" src="assets/home-top-cyberpunk.jpg" alt="Cyberpunk 2077: Phantom Liberty">
+        <p class="rating-card__categoria">RPG Sci-Fi</p>
+        <h3 class="rating-card__nombre">Cyberpunk 2077: Phantom Liberty</h3>
+        <span class="rating"><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star-off.svg" alt=""> 4.8</span>
+      </a>
+      <a href="detalle/detalle.html?id=sonywh" class="rating-card">
+        <img class="rating-card__imagen" src="assets/home-top-sonywh.jpg" alt="Sony WH-1000XM5">
+        <p class="rating-card__categoria">Auriculares</p>
+        <h3 class="rating-card__nombre">Sony WH-1000XM5</h3>
+        <span class="rating"><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star-off.svg" alt=""> 4.8</span>
+      </a>
+      <a href="detalle/detalle.html?id=steelseries" class="rating-card">
+        <img class="rating-card__imagen" src="assets/home-top-steelseries.jpg" alt="SteelSeries Apex Pro">
+        <p class="rating-card__categoria">Teclado Gaming</p>
+        <h3 class="rating-card__nombre">SteelSeries Apex Pro</h3>
+        <span class="rating"><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star.svg" alt=""><img src="assets/home-icon-star-off.svg" alt=""> 4.7</span>
+      </a>
+    </div>
+  </section>
+
+  <!--
+    GRATIS PARA JUGAR AHORA — a diferencia de las secciones de arriba,
+    que muestran los 20 productos "fijos" de productos-datos.js, esta
+    sección consume una API real de internet (FreeToGame) con fetch().
+    Los datos NO están escritos en este HTML: api.js los pide al cargar
+    la página y los agrega aquí. Es gratis y no necesita API key.
+  -->
+  <section class="seccion seccion--panel">
+    <div class="seccion__header seccion__header--solo">
+      <p class="seccion__eyebrow seccion__eyebrow--rosa">// EN VIVO DESDE FREETOGAME.COM</p>
+      <h2 class="seccion__titulo">🆓 Gratis para Jugar Ahora</h2>
+    </div>
+
+    <!-- Mientras carga (o si la API falla) se ve este mensaje. api.js lo
+         oculta apenas los juegos reales están listos para mostrarse. -->
+    <p class="gratis-estado" id="gratis-estado">Cargando juegos en vivo desde la API…</p>
+
+    <div class="gratis-grid" id="gratis-grid"></div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter" id="newsletter">
+    <img class="newsletter__fondo" src="assets/home-newsletter-bg.jpg" alt="">
+    <div class="newsletter__contenido">
+      <p class="seccion__eyebrow">// COMUNIDAD NEXUS</p>
+      <h2 class="newsletter__titulo">Únete a la Red NexusGaming</h2>
+      <p class="newsletter__desc">Recibe semanalmente análisis técnicos de hardware, alertas de parches para grandes videojuegos y actualizaciones de firmware exclusivas directamente en tu terminal.</p>
+      <form class="newsletter__form" id="form-newsletter">
+        <input type="email" placeholder="Tu dirección de correo..." id="newsletter-email" name="newsletter-email" autocomplete="email" required>
+        <button type="submit" class="boton boton--primario">Suscribirse</button>
+      </form>
+      <p class="newsletter__estado" id="newsletter-estado" hidden></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__cols">
+      <div class="footer__marca">
+        <div class="navbar__marca">
+          <div class="navbar__logo"><img src="assets/logo-triangle.svg" alt=""></div>
+          <p class="navbar__nombre">NEXUS<span>//</span>GAMING</p>
+        </div>
+        <p class="footer__descripcion">La base de datos definitiva para el entusiasta del hardware y los videojuegos. Especificaciones, análisis y comparativas premium.</p>
+      </div>
+      <div class="footer__links-grid">
+        <div class="footer__columna">
+          <p class="footer__titulo-col">Catálogo</p>
+          <a href="catalogo/catalogo.html?categoria=Videojuegos">Videojuegos</a>
+          <a href="catalogo/catalogo.html?categoria=Consolas">Consolas</a>
+          <a href="catalogo/catalogo.html?categoria=PC%20Gaming">PC Gaming</a>
+          <a href="catalogo/catalogo.html?categoria=Accesorios">Accesorios</a>
+          <a href="catalogo/catalogo.html?categoria=Tecnología">Tecnología</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 NEXUSGAMING. PROYECTO FICTICIO DE BASE DE DATOS.</p>
+      <div class="footer__social">
+        <a href="#"><img src="assets/icon-twitter.svg" alt="Twitter"></a>
+        <a href="#"><img src="assets/icon-share.svg" alt="Compartir"></a>
+        <a href="#"><img src="assets/icon-twitch.svg" alt="Twitch"></a>
+        <a href="#"><img src="assets/icon-youtube.svg" alt="YouTube"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script src="api.js"></script>
+  <!-- SDK de EmailJS: manda el correo del newsletter desde el navegador, sin backend (ver home.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="home.js"></script>
+</body>
+</html>

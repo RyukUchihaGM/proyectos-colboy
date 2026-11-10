@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo — NEXUS//GAMING</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo-triangle.svg">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="catalogo.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar__marca">
+      <div class="navbar__logo"><img src="../assets/logo-triangle.svg" alt=""></div>
+      <p class="navbar__nombre">NEXUS<span>//</span>GAMING</p>
+    </div>
+    <nav class="navbar__menu" id="navbar-menu">
+      <a href="../index.html">Inicio</a>
+      <a href="catalogo.html" class="activo">Catálogo</a>
+      <a href="catalogo.html?categoria=Videojuegos">Videojuegos</a>
+      <a href="catalogo.html?categoria=Tecnología">Tecnología</a>
+      <a href="catalogo.html?categoria=Consolas">Consolas</a>
+      <a href="catalogo.html?categoria=Accesorios">Accesorios</a>
+      <a href="catalogo.html?favoritos=1">Favoritos</a>
+    </nav>
+    <div class="navbar__derecha">
+      <div class="navbar__buscador">
+        <img src="../assets/icon-search.svg" alt="">
+        <input type="text" id="navbar-buscar" name="navbar-buscar" placeholder="Buscar en la base de datos...">
+      </div>
+      <a href="#" class="navbar__avatar"><img src="../assets/avatar-default.png" alt="Perfil"></a>
+    </div>
+    <button type="button" class="navbar__toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navbar-menu">☰</button>
+  </header>
+
+  <!-- ===================== TÍTULO DE PÁGINA ===================== -->
+  <section class="titulo-pagina">
+    <div>
+      <p class="titulo-pagina__etiqueta">// Base de datos activa</p>
+      <h1 class="titulo-pagina__titulo">Catálogo Completo</h1>
+    </div>
+    <div class="titulo-pagina__estado">
+      <span class="estado-ok">STATUS: OK</span>
+      <span class="punto"></span>
+      <span><span id="contador-resultados">0</span> productos encontrados</span>
+    </div>
+  </section>
+
+  <!-- ===================== CATÁLOGO: FILTROS + GRID ===================== -->
+  <main class="catalogo-layout">
+
+    <!-- ---------- SIDEBAR DE FILTROS ---------- -->
+    <aside class="filtros">
+      <div class="filtros__cabecera">
+        <p class="filtros__titulo">Filtros</p>
+        <button type="button" class="filtros__limpiar" id="btn-limpiar">Limpiar</button>
+      </div>
+      <hr class="filtros__linea">
+
+      <!-- data-categoria en cada checkbox debe coincidir EXACTO con el
+           campo "categoriaPlural" de cada producto en productos-datos.js
+           — así catalogo.js sabe qué categoría representa cada casilla. -->
+      <fieldset class="filtros__grupo" id="filtro-categoria">
+        <legend>Categoría</legend>
+        <label class="filtro-check">
+          <input type="checkbox" checked id="cat-videojuegos" name="cat-videojuegos" data-categoria="Videojuegos">
+          <span>Videojuegos</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" checked id="cat-consolas" name="cat-consolas" data-categoria="Consolas">
+          <span>Consolas</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" checked id="cat-pc-gaming" name="cat-pc-gaming" data-categoria="PC Gaming">
+          <span>PC Gaming</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" checked id="cat-accesorios" name="cat-accesorios" data-categoria="Accesorios">
+          <span>Accesorios</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" checked id="cat-tecnologia" name="cat-tecnologia" data-categoria="Tecnología">
+          <span>Tecnología</span>
+        </label>
+      </fieldset>
+      <hr class="filtros__linea">
+
+      <fieldset class="filtros__grupo" id="filtro-plataforma">
+        <legend>Plataforma</legend>
+        <label class="filtro-check">
+          <input type="checkbox" id="plat-playstation" name="plat-playstation" data-plataforma="PlayStation">
+          <span>PlayStation</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" id="plat-xbox" name="plat-xbox" data-plataforma="Xbox">
+          <span>Xbox</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" id="plat-nintendo" name="plat-nintendo" data-plataforma="Nintendo">
+          <span>Nintendo</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" id="plat-pc" name="plat-pc" data-plataforma="PC">
+          <span>PC</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" checked id="plat-multiplataforma" name="plat-multiplataforma" data-plataforma="Multiplataforma">
+          <span>Multiplataforma</span>
+        </label>
+      </fieldset>
+      <hr class="filtros__linea">
+
+      <fieldset class="filtros__grupo" id="filtro-genero">
+        <legend>Género</legend>
+        <label class="filtro-check">
+          <input type="checkbox" id="genero-accion" name="genero-accion" data-genero="Acción">
+          <span>Acción</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" id="genero-aventura" name="genero-aventura" data-genero="Aventura">
+          <span>Aventura</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" id="genero-deportes" name="genero-deportes" data-genero="Deportes">
+          <span>Deportes</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" id="genero-rpg" name="genero-rpg" data-genero="RPG">
+          <span>RPG</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" id="genero-shooter" name="genero-shooter" data-genero="Shooter">
+          <span>Shooter</span>
+        </label>
+        <label class="filtro-check">
+          <input type="checkbox" id="genero-estrategia" name="genero-estrategia" data-genero="Estrategia">
+          <span>Estrategia</span>
+        </label>
+      </fieldset>
+      <hr class="filtros__linea">
+
+      <div class="filtros__grupo">
+        <div class="filtros__fila">
+          <p class="filtros__subtitulo">Año Lanzamiento</p>
+          <p class="filtros__valor" id="anio-valor-texto">2020 - 2025</p>
+        </div>
+        <!-- input type="range" doble: usamos dos sliders superpuestos para simular un rango -->
+        <div class="rango-doble">
+          <input type="range" min="2011" max="2025" value="2020" class="rango-doble__input" id="rango-anio-min">
+          <input type="range" min="2011" max="2025" value="2025" class="rango-doble__input" id="rango-anio-max">
+        </div>
+      </div>
+      <hr class="filtros__linea">
+
+      <div class="filtros__grupo">
+        <p class="filtros__subtitulo">Valoración Mínima</p>
+        <div class="valoracion-filtro" id="valoracion-filtro">
+          <button type="button" data-valor="1"><img src="../assets/cat-icon-star.svg" alt="1 estrella o más"></button>
+          <button type="button" data-valor="2"><img src="../assets/cat-icon-star.svg" alt="2 estrellas o más"></button>
+          <button type="button" data-valor="3"><img src="../assets/cat-icon-star.svg" alt="3 estrellas o más"></button>
+          <button type="button" data-valor="4"><img src="../assets/cat-icon-star.svg" alt="4 estrellas o más"></button>
+          <button type="button" data-valor="5"><img src="../assets/cat-icon-star.svg" alt="5 estrellas"></button>
+          <span id="valoracion-texto">cualquiera</span>
+        </div>
+      </div>
+      <hr class="filtros__linea">
+
+      <button type="button" class="boton boton--primario filtros__aplicar" id="btn-aplicar">Aplicar Filtros</button>
+    </aside>
+
+    <!-- ---------- RESULTADOS ---------- -->
+    <div class="resultados">
+
+      <div class="panel-orden">
+        <div class="panel-orden__ordenar">
+          <span>ORDENAR POR:</span>
+          <div class="selector-envoltorio">
+            <button type="button" class="selector" id="btn-orden" aria-expanded="false">
+              <span id="orden-texto">Relevancia</span>
+              <img src="../assets/cat-icon-chevron-down.svg" alt="">
+            </button>
+          </div>
+        </div>
+        <div class="panel-orden__vista">
+          <button type="button" class="vista-boton vista-boton--activo" id="vista-grid">
+            <img src="../assets/cat-icon-grid.svg" alt="Vista de grilla">
+          </button>
+          <button type="button" class="vista-boton" id="vista-lista">
+            <img src="../assets/cat-icon-layout-list.svg" alt="Vista de lista">
+          </button>
+        </div>
+      </div>
+
+      <!--
+        El grid de productos ya NO está escrito a mano acá: catalogo.js
+        lee PRODUCTOS (productos-datos.js), arma cada tarjeta y la mete
+        aquí dentro. También decide cuáles mostrar según qué casillas
+        de "Categoría" estén marcadas en el sidebar de filtros.
+      -->
+      <div class="catalogo-grid" id="catalogo-grid"></div>
+
+      <!-- Se muestra solo cuando ninguna categoría marcada tiene productos -->
+      <p class="sin-resultados" id="sin-resultados" hidden>
+        No se encontraron productos con los filtros seleccionados.
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__cols">
+      <div class="footer__marca">
+        <div class="navbar__marca">
+          <div class="navbar__logo"><img src="../assets/logo-triangle.svg" alt=""></div>
+          <p class="navbar__nombre">NEXUS<span>//</span>GAMING</p>
+        </div>
+        <p class="footer__descripcion">La base de datos definitiva para el entusiasta del hardware y los videojuegos. Especificaciones, análisis y comparativas premium.</p>
+      </div>
+      <div class="footer__links-grid">
+        <div class="footer__columna">
+          <p class="footer__titulo-col">Catálogo</p>
+          <a href="catalogo.html?categoria=Videojuegos">Videojuegos</a>
+          <a href="catalogo.html?categoria=Consolas">Consolas</a>
+          <a href="catalogo.html?categoria=PC%20Gaming">PC Gaming</a>
+          <a href="catalogo.html?categoria=Accesorios">Accesorios</a>
+          <a href="catalogo.html?categoria=Tecnología">Tecnología</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 NEXUSGAMING. PROYECTO FICTICIO DE BASE DE DATOS.</p>
+      <div class="footer__social">
+        <a href="#"><img src="../assets/icon-twitter.svg" alt="Twitter"></a>
+        <a href="#"><img src="../assets/icon-share.svg" alt="Compartir"></a>
+        <a href="#"><img src="../assets/icon-twitch.svg" alt="Twitch"></a>
+        <a href="#"><img src="../assets/icon-youtube.svg" alt="YouTube"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../nav.js"></script>
+  <!-- El orden importa: los datos deben cargar ANTES que el script que los usa -->
+  <script src="../productos-datos.js"></script>
+  <script src="catalogo.js"></script>
+</body>
+</html>

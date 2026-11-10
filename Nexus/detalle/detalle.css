@@ -1,0 +1,516 @@
+/* =====================================================
+   DETALLE.CSS — estilos de la plantilla única de producto.
+   Reutiliza las variables y componentes compartidos de base.css
+   (navbar, footer, botones). Los datos que rellenan esta plantilla
+   vienen de productos-datos.js a través de detalle.js.
+   ===================================================== */
+
+main {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  min-height: 60vh; /* para que el footer no quede "pegado" si un producto tiene poco contenido */
+}
+
+.linea {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: var(--color-borde);
+}
+
+.titulo-seccion {
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--color-texto);
+}
+
+/* ===================== ESTADO: PRODUCTO NO ENCONTRADO ===================== */
+.no-encontrado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: 120px 24px;
+}
+
+.no-encontrado__codigo {
+  font-family: var(--fuente-mono);
+  color: var(--color-magenta);
+  letter-spacing: 2px;
+}
+
+.no-encontrado h1 {
+  font-family: var(--fuente-titulos);
+  font-size: 32px;
+}
+
+.no-encontrado p {
+  color: var(--color-texto-muted);
+}
+
+/* ===================== BREADCRUMBS ===================== */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 32px 80px 16px;
+  font-size: 13px;
+}
+
+.breadcrumbs a { color: var(--color-texto-muted); }
+.breadcrumbs a:hover { color: var(--color-texto); }
+
+.breadcrumbs__sep {
+  font-family: var(--fuente-mono);
+  color: var(--color-magenta);
+  font-size: 11px;
+}
+
+.breadcrumbs__actual { color: var(--color-cian); }
+
+/* ===================== HERO ===================== */
+.hero-block {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  padding: 24px 80px 48px;
+}
+
+.hero-block__cover {
+  flex-shrink: 0;
+  border: 2px solid var(--color-borde);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--color-panel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dos "sabores" de portada: vertical para cajas de videojuego, horizontal
+   para fotos de producto de hardware. detalle.js agrega una de estas dos
+   clases según el campo imagenOrientacion de cada producto. */
+.hero-block__cover--vertical { width: 512px; height: 600px; }
+.hero-block__cover--horizontal { width: 560px; height: 380px; }
+
+.hero-block__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-block__meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.badge-row { display: flex; gap: 12px; }
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid;
+  font-family: var(--fuente-mono);
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.badge--cian { border-color: var(--color-cian); color: var(--color-cian); }
+.badge--magenta { border-color: var(--color-magenta); color: var(--color-magenta); }
+
+.game-title {
+  font-family: var(--fuente-titulos);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.1;
+  color: var(--color-texto);
+}
+
+/* Precio grande — solo aparece si el producto tiene campo "precio" */
+.price-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.price-tag__valor {
+  font-family: var(--fuente-titulos);
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--color-cian);
+}
+
+.price-tag__stock {
+  font-family: var(--fuente-mono);
+  font-size: 12px;
+  color: #3ddc84;
+}
+
+.boton-favorito {
+  align-self: flex-start;
+}
+
+.boton-favorito.activo {
+  border-color: var(--color-magenta);
+  color: var(--color-magenta);
+}
+
+.developer-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.developer-row__divider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--color-borde);
+}
+
+.meta-item__label {
+  font-size: 12px;
+  color: var(--color-texto-muted);
+  margin-bottom: 4px;
+}
+
+.meta-item__value {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-texto);
+}
+
+.genre-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.genre-tag {
+  padding: 6px 12px;
+  background-color: var(--color-panel);
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.rating-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--color-texto-muted);
+}
+
+.rating-group__estrellas { display: flex; gap: 4px; }
+.rating-group__estrellas img { width: 12px; height: 12px; }
+
+.rating-group__numero {
+  font-family: var(--fuente-mono);
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.platforms-block__titulo {
+  font-family: var(--fuente-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--color-texto-muted);
+  margin-bottom: 10px;
+}
+
+.platforms-block__lista { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.platform-tag {
+  padding: 8px 12px;
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  font-family: var(--fuente-texto);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/* ===================== CUERPO ===================== */
+.content-body {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 0 80px 48px;
+}
+
+.body-left {
+  width: 780px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+
+.body-right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hud-card {
+  background-color: var(--color-panel);
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hud-card--cian {
+  border-color: rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.12);
+}
+
+.hud-card--magenta {
+  border-color: rgba(255, 0, 122, 0.2);
+  box-shadow: 0 0 8px rgba(255, 0, 122, 0.12);
+}
+
+.hud-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hud-card__title {
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--color-texto);
+}
+
+.hud-card__tag { font-family: var(--fuente-mono); font-size: 11px; }
+.hud-card__tag--cian { color: var(--color-cian); }
+.hud-card__tag--magenta { color: var(--color-magenta); }
+
+.hud-card__texto {
+  color: var(--color-texto-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ---------- Especificaciones / Modos de juego ---------- */
+.modes-section { display: flex; flex-direction: column; gap: 16px; }
+
+.modes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.mode-card {
+  background-color: var(--color-panel);
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mode-card__header { display: flex; align-items: center; gap: 8px; }
+
+.mode-card__header p {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-texto);
+}
+
+.mode-card__desc {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-texto-muted);
+}
+
+/* Valor grande de una especificación técnica, ej. "24 GB GDDR6X" */
+.mode-card__valor {
+  font-family: var(--fuente-mono);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-cian);
+}
+
+/* ---------- Requisitos ---------- */
+.reqs-section { display: flex; flex-direction: column; gap: 16px; }
+
+.reqs-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.req-col {
+  background-color: var(--color-panel);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.req-col__titulo { font-family: var(--fuente-mono); font-weight: 700; font-size: 12px; }
+.req-col__titulo--cian { color: var(--color-cian); }
+.req-col__titulo--magenta { color: var(--color-magenta); }
+
+.req-col__filas, .stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.stats-list { gap: 12px; }
+
+.req-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.req-row span:first-child { color: var(--color-texto-muted); }
+
+.req-row span:last-child {
+  font-family: var(--fuente-mono);
+  font-weight: 600;
+  color: var(--color-texto);
+  text-align: right;
+}
+
+/* ---------- Lista de características ---------- */
+.features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--color-texto);
+}
+
+.features-list li { display: flex; gap: 8px; }
+.features-list__marker { font-family: var(--fuente-mono); color: var(--color-cian); flex-shrink: 0; }
+
+/* ---------- Pros y contras ---------- */
+.proscons { display: flex; flex-direction: column; gap: 10px; }
+.proscons__label { font-family: var(--fuente-mono); font-size: 11px; }
+.proscons__label--cian { color: var(--color-cian); }
+.proscons__label--magenta { color: var(--color-magenta); }
+.proscons__item { font-size: 13px; color: var(--color-texto); }
+
+/* ===================== GALERÍA ===================== */
+.gallery-section {
+  padding: 48px 80px;
+  border-top: 1px solid var(--color-borde);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.gallery-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  flex: 1;
+  min-width: 200px;
+  height: 160px;
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ===================== PRODUCTOS SIMILARES ===================== */
+.similar-section {
+  padding: 0 80px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.similar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.similar-card {
+  background-color: var(--color-panel);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.similar-card:hover { border-color: var(--color-cian); transform: translateY(-4px); }
+
+.similar-card__imagen {
+  width: 100%;
+  height: 140px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.similar-card__imagen img { width: 100%; height: 100%; object-fit: cover; }
+
+.similar-card__titulo {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-texto);
+}
+
+.similar-card__rating {
+  font-family: var(--fuente-mono);
+  font-size: 12px;
+  color: var(--color-texto-muted);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1100px) {
+  .hero-block, .content-body { flex-direction: column; }
+  /* La portada pasa a ancho completo con proporción fija (4:3) */
+  .hero-block__cover--vertical, .hero-block__cover--horizontal { width: 100%; height: auto; aspect-ratio: 4/3; }
+  /* body-left es la columna de TEXTO: solo necesita ancho completo,
+     su alto lo define el contenido (nada de aspect-ratio acá) */
+  .body-left { width: 100%; }
+  .modes-grid, .reqs-columns { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .breadcrumbs, .hero-block, .content-body, .gallery-section, .similar-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .game-title { font-size: 32px; }
+  .gallery-row { flex-direction: column; }
+  .gallery-item { min-width: 0; }
+}
+
+@media (max-width: 480px) {
+  .game-title { font-size: 26px; }
+  .price-tag__valor { font-size: 24px; }
+  .modes-grid { gap: 12px; }
+  .hud-card { padding: 18px; }
+}
